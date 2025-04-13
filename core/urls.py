@@ -1,5 +1,5 @@
 """
-URL configuration for library project.
+URL configuration for apps project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/

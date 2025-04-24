@@ -6,3 +6,4 @@ django-phonenumber-field==8.1.0
 djangorestframework_simplejwt==5.5.0
 drf-yasg==1.21.10
 celery==5.5.1
+django-filter==25.1

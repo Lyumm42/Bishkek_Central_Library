@@ -13,6 +13,9 @@ schema_view = get_schema_view(
         title="Library API",
         default_version='v1',
         description="Документация к библиотечной системе",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="your@email.com"),
+        license=openapi.License(name="BSD License"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -20,9 +23,12 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('books.urls')),  # Оставляем как было
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('api/books/', include('books.urls')),
+    path('api/users/', include('users.urls')),
+
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

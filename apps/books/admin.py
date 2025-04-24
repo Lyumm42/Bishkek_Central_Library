@@ -4,7 +4,7 @@ from .models import Author, Book, Rental, Penalty, ActionHistory
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'birth_date')
+    list_display = ('name',)
     search_fields = ('name',)
     ordering = ('name',)
 
@@ -19,18 +19,16 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(Rental)
 class RentalAdmin(admin.ModelAdmin):
-    list_display = ('user', 'book', 'rented_at', 'returned_at')
-    list_filter = ('rented_at', 'returned_at')
+    list_display = ('user', 'book',  )
+
     search_fields = ('user__username', 'book__title')
-    date_hierarchy = 'rented_at'
+
 
 
 @admin.register(Penalty)
 class PenaltyAdmin(admin.ModelAdmin):
-    list_display = ('user', 'amount', 'is_paid', 'issued_at')
-    list_filter = ('is_paid',)
+    list_display = ('amount',)
     search_fields = ('user__username',)
-    date_hierarchy = 'issued_at'
 
 
 @admin.register(ActionHistory)
